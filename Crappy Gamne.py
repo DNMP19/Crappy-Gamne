@@ -1,10 +1,11 @@
-#Crappy Gamne v 1.10 USERS, Load and create users WIP
+#Crappy Gamne v 1.101 USERS, Load and create users WIP
 import pygame
 import time
 import random
 import sys
 
 global name
+version = 1.01
 
 name = "defaultUserName"
 open("defaultUserName.txt", 'a')
@@ -36,7 +37,7 @@ light_blue = (0, 76, 230)
 light_orange = (255, 128, 64)
 
 gameDisplay = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption('Crappy Gamne v 1.10')
+pygame.display.set_caption('Crappy Gamne' + str(version))
 clock = pygame.time.Clock()
 
 iconImg = pygame.image.load('Crappy Gamne icon stufe.png')
@@ -222,6 +223,7 @@ def message3display(text):
     time.sleep(1)
 
 def wine():
+
     global user
     global craps
     global bshape
@@ -230,6 +232,7 @@ def wine():
     global etp
     global ecp
     global eshape
+    craps = int(craps)
     ctime = 0
     while wine:
         for event in pygame.event.get():
@@ -383,6 +386,7 @@ def winm():
     global etp
     global ecp
     global eshape
+    craps = int(craps)
     ctime = 0
     while winm:
         for event in pygame.event.get():
@@ -534,6 +538,7 @@ def winh():
     global etp
     global ecp
     global eshape
+    craps = int(craps)
     ctime = 0
     while winh:
         for event in pygame.event.get():
@@ -685,6 +690,7 @@ def guarde():
     global etp
     global ecp
     global eshape
+    craps = int(craps)
     ctime = 0
     while guarde:
         for event in pygame.event.get():
@@ -738,6 +744,7 @@ def guardm():
     global etp
     global ecp
     global eshape
+    craps = int(craps)
     ctime = 0
     while guardm:
         for event in pygame.event.get():
@@ -792,6 +799,7 @@ def guardh():
     global etp
     global ecp
     global eshape
+    craps = int(craps)
     ctime = 0
     while guardh:
         for event in pygame.event.get():
@@ -1100,6 +1108,7 @@ def new():
     global bcp
     global etp
     global ecp
+    craps = int(craps)
     craps = 0
     ypay = 0
     bpay = 0
@@ -1341,12 +1350,14 @@ def saveName(fileName):
         open(fileName, 'a')
 def openFile(fileName):
     global craps
+    craps = int(craps)
     if len(fileName) == 10:
         saveFile = open(fileName, 'r+')
         craps = saveFile.read()
         saveFile.close()
 def saveProgress(fileName):
     global craps
+    craps = int(craps)
     saveFile = open(fileName, 'r+')
     saveFile.write(str(craps))
     saveFile.close()
@@ -1572,12 +1583,14 @@ def game_intro():
 def rect():
     global shape
     global craps
+    craps = int(craps)
     shape = rectangle
     store()
 def tria():
     global shape
     global craps
     global tpay
+    craps = int(craps)
     if craps - 250 >= 0 and tpay < 1:
         craps -= 250
         shape = triangle
@@ -1591,6 +1604,7 @@ def circ():
     global shape
     global craps
     global cpay
+    craps = int(craps)
     if craps - 500 >= 0 and cpay < 1:
         craps -= 500
         shape = circle
@@ -1603,6 +1617,7 @@ def circ():
 def yel():
     global craps
     global ypay
+    craps = int(craps)
     if craps - 100 >= 0 and ypay < 1:
         craps -= 100
         ypay += 1
@@ -1614,6 +1629,7 @@ def yel():
 def whi():
     global craps
     global wpay
+    craps = int(craps)
     if craps - 100 >= 0 and wpay < 1:
         craps -= 100
         wpay += 1
@@ -1625,6 +1641,7 @@ def whi():
 def bro():
     global craps
     global bpay
+    craps = int(craps)
     if craps - 100 >= 0 and bpay < 1:
         craps -= 100
         bpay += 1
@@ -1638,6 +1655,7 @@ def store():
     global ypay
     global wpay
     global bpay
+    craps = int(craps)
     time.sleep(.2)
     store = True
 
@@ -1760,12 +1778,14 @@ def store():
 def frect():
     global fshape
     global craps
+    craps = int(craps)
     fshape = rectangle
     store2()
 def ftria():
     global fshape
     global craps
     global ftpay
+    craps = int(craps)
     if craps - 750 >= 0 and ftpay < 1:
         craps -= 750
         fshape = triangle
@@ -1779,6 +1799,7 @@ def fcirc():
     global fshape
     global craps
     global fcpay
+    craps = int(craps)
     if craps - 1000 >= 0 and fcpay < 1:
         craps -= 1000
         fshape = circle
@@ -1792,6 +1813,7 @@ def btri():
     global bshape
     global craps
     global btp
+    craps = int(craps)
     if craps - 300 >= 0 and btp < 1:
         craps -= 300
         bshape = triangle
@@ -1805,6 +1827,7 @@ def etri():
     global eshape
     global craps
     global etp
+    craps = int(craps)
     if craps - 150 >= 0 and etp < 1:
         craps -= 150
         eshape = triangle
@@ -1818,6 +1841,7 @@ def bcirc():
     global bshape
     global craps
     global bcp
+    craps = int(craps)
     if craps - 500 >= 0 and bcp < 1:
         craps -= 500
         bshape = circle
@@ -1831,6 +1855,7 @@ def ecirc():
     global eshape
     global craps
     global ecp
+    craps = int(craps)
     if craps - 300 >= 0 and ecp < 1:
         craps -= 300
         eshape = circle
@@ -1842,6 +1867,7 @@ def ecirc():
     store2()
 def store2():
     global craps
+    craps = int(craps)
     time.sleep(.2)
     store2 = True
 
@@ -2040,6 +2066,7 @@ def store2():
 def game_menu():
     global craps
     global user
+    craps = int(craps)
     time.sleep(.2)
     menu = True
 
@@ -2088,6 +2115,7 @@ def game_loope():
     global circailiniumHealth
     global fonts
     global craps
+    craps = int(craps)
 
     w= 75
     h = 50
@@ -2313,6 +2341,7 @@ def boss_fighte():
     global pause
     global fonts
     global craps
+    craps = int(craps)
 
     message2display("Y U b EETen My PePle")
     
@@ -2696,6 +2725,7 @@ def game_loopm():
     global circailiniumHealth
     global fonts
     global craps
+    craps = int(craps)
 
     w= 75
     h = 50
@@ -2920,6 +2950,7 @@ def boss_fightm():
     global pause
     global fonts
     global craps
+    craps = int(craps)
 
     message2display("Y U b EETen My PePle")
     
@@ -3303,6 +3334,7 @@ def game_looph():
     global circailiniumHealth
     global fonts
     global craps
+    craps = int(craps)
 
     w= 75
     h = 50
@@ -3528,6 +3560,7 @@ def boss_fighth():
     global pause
     global fonts
     global craps
+    craps = int(craps)
 
     message2display("Y U b EETen My PePle")
     
