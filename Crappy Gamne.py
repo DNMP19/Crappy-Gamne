@@ -1,4 +1,4 @@
-#Crappy Gamne v 1.101 USERS, Load and create users WIP
+#Crappy Gamne v 1.2 MLG
 import pygame
 import time
 import random
