@@ -3,12 +3,11 @@ import pygame
 import time
 import random
 import sys
-
 global name
+name = ""
+
 version = 1.01
 
-name = "defaultUserName"
-open("defaultUserName.txt", 'a')
 open(".txt", 'a')
 
 pygame.init()
@@ -37,13 +36,15 @@ light_blue = (0, 76, 230)
 light_orange = (255, 128, 64)
 
 gameDisplay = pygame.display.set_mode((display_width, display_height))
-pygame.display.set_caption('Crappy Gamne' + str(version))
+pygame.display.set_caption('Crappy Gamne' + " " + str(version))
 clock = pygame.time.Clock()
 
 iconImg = pygame.image.load('Crappy Gamne icon stufe.png')
 startImg = pygame.image.load('Crappy Gamne start stufe.png')
 winImg = pygame.image.load('Crappy Gamne win stufe.png')
 lostImg = pygame.image.load('Crappy Gamne lost stufe.png')
+doritos = pygame.image.load('doritos.png')
+illum = pygame.image.load('illuminati.png')
 
 pygame.display.set_icon(iconImg)
 
@@ -129,9 +130,11 @@ def rectailinium(x,y,w,h):
     textRect.center = ( (x+(w/2)), y+(h/2) )
     gameDisplay.blit(textSurf, textRect)
 def trialinium(x,y,w,h):
-    pygame.draw.polygon(gameDisplay, rcolor, [[x+w,y+h],[x,y],[x-w, y+h]],0)
+    illum = pygame.image.load('illuminati.png')
+    illum = pygame.transform.scale(illum, (int(x+w),int(y+h)))
+    gameDisplay.blit(illum, (x - (w - 50),y - (h - 50)))
     smallText = pygame.font.SysFont(None,fonts)
-    textSurf, textRect = text_objects("triailinium", smallText)
+    textSurf, textRect = text_objects("triaillumintium", smallText)
     textRect.center = (( x )), ( y+h-15 ) 
     gameDisplay.blit(textSurf, textRect)
 def circailinium(x,y,r):
@@ -144,7 +147,9 @@ def circailinium(x,y,r):
 def foodrec(fx,fy,fw,fh):
     pygame.draw.rect(gameDisplay, grey,[fx,fy, fw, fh])
 def foodtri(fx,fy,fw,fh):
-    pygame.draw.polygon(gameDisplay, grey, [[fx+fw,fy+fh],[fx,fy],[fx-fw, fy+fh]],0)
+    doritos = pygame.image.load('doritos.png')
+    doritos = pygame.transform.scale(doritos, (int(fx+fw),int(fy+fh)))
+    gameDisplay.blit(doritos, (fx, fy))
 def foodcirc(fx,fy,fr):
     pygame.draw.circle(gameDisplay, grey,[int(fx),int(fy)],fr)
 
@@ -1568,7 +1573,7 @@ def game_intro():
              
         startpic(0,0)
         largeText = pygame.font.SysFont(None, 115)
-        TextSurf, TextRect = text_objects("Crappy Gamne", largeText)
+        TextSurf, TextRect = text_objects("MLG Crappy Gamne", largeText)
         TextRect.center = ((display_width/2),(display_height/2))
         gameDisplay.blit(TextSurf, TextRect)
 
